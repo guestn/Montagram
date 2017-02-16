@@ -43,7 +43,7 @@ export default class IndexPage extends React.Component {
 	}
 	
   render() {
-      return (
+  	return (
       <div className="index-page">
         <div className="main-pane">
           <input type="text" value={this.state.inputValue} onChange={this.handleInputChange} placeholder="your insta name" autoFocus="true"/>
@@ -64,9 +64,8 @@ export default class IndexPage extends React.Component {
 	 						<div className="indicator"></div>
 						</label>
 					</div>
-          <a className="btn btn-text" href={'/auth?user=' + this.state.inputValue + '&dur=' + this.state.radioValue }>Get My Montage!</a>
+          <a className="btn btn-text" href={'/auth?user=' + this.state.inputValue + '&dur=' + this.state.radioValue }>get my #montagram!</a>
         </div>
-
       </div>
     );
   }
