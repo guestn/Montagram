@@ -9,10 +9,9 @@ export default class Layout extends React.Component {
       <div className="app-container">
         <header>
           <Link to="/" className="site-logo">
-            <img className="logo" src="/img/site-logo.png"/>
-            <h1>BestOf2.0</h1>
+            <h1>Montagram</h1>
           </Link>
-          <h2>Subtitle</h2>
+          <h2>Create a montage of your most popular posts!</h2>
         </header>
         <div className="app-content">{this.props.children}</div>
         <footer>

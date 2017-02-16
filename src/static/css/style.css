@@ -1,12 +1,4 @@
-@font-face {
-  font-family: 'OrkneyLight';
-  src: url('../fonts/OrkneyLight.eot');
-  src: url('../fonts/OrkneyLight.eot') format('embedded-opentype'),
-       url('../fonts/OrkneyLight.woff2') format('woff2'),
-       url('../fonts/OrkneyLight.woff') format('woff'),
-       url('../fonts/OrkneyLight.ttf') format('truetype'),
-       url('../fonts/OrkneyLight.svg#OrkneyLight') format('svg');
-}
+@import url('https://fonts.googleapis.com/css?family=Fugaz+One');
 
 /*! CSS reset */
 *,:after,:before{box-sizing:border-box}html{box-sizing:border-box}
@@ -23,29 +15,29 @@ button:focus, textarea:focus {outline:0}
 /* hilite: #F15743 */
 
 html {
-  color: #666;
+  color: #000;
   font: caption;
   padding: 0px;
+  width:100%;
 }
 body {
   background: #fff;
   background-size: cover;
-	font-family: 'OrkneyLight';
-	font-size: 12px;
+	font-family: 'Fugaz One';
+	font-size: 16px;
 	background-image: url(../img/main-bg.jpg);
 	background-size: 100% auto;
 	background-position: center top;
 	background-repeat: no-repeat;
+	background-attachment: fixed;
+	width:100%;
+	overflow-x: hidden;
 
 }
 
-.test {
-	padding: 20px;
-	background: black;
-	font-size: 2em;
+input {
+	font-family: 'Fugaz One';	
 }
-
-
 
 a {
   text-decoration: none;
@@ -72,55 +64,59 @@ h2 {
 }
 
 #main {
-	margin: 20px;
+	position: relative;
 	min-height: calc(100vh - 40px);
 	background: transparent;
-	text-align: center;
-	border: 1px dotted pink;
 }
 
 .app-container {
 	position: relative;
   min-height: calc(100vh - 40px);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: calc(100vw - 40px);
+  max-width: 1040px;
+  border: 1px dotted pink;
+
 }
 
+.app-content {
+	width: 100%;
+}
 header {
 	position: relative;
-	top:0;
-	left:0;
-	width:calc(100% - 40px);
-  padding: 0 4em 0 2em;
-  margin: 20px;
-  height: 80px;
-  overflow: hidden;
+	align-self: flex-start;
+	width:100%;
+  padding: 0;
+  margin-top: 5vw;
   z-index:10;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(70deg, rgba(255,255,255,1), rgba(255,255,255,0.8));
+/* //  background: linear-gradient(70deg, rgba(255,255,255,1), rgba(255,255,255,0.8)); */
+  border-radius: 6px;
 }
 
 header .site-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	position: relative;
 }
 
 header .site-logo .logo {
-	  height:72px;
 
 }
 
 header .site-logo h1 {
-	display: inline-block;
-	color:black;
-	font-size: 2.25em;
-	line-height: 0.05;
+	position: relative;
+	font-size: 6em;
+  background: white;
+  display: inline-block;
+  line-height: 0.4;
+  vertical-align: baseline;
+  box-shadow: 0 0.25em 1em rgba(50,50,50,0.3);
+  margin:0;
+  padding: 0 0 0.4em 10em;
+  left: -10em;
+
 }
 
 header .site-logo h1 > span {
@@ -132,11 +128,23 @@ header .site-logo .logo {
 }
 
 header h2 {
+	position: relative;
+	font-size: 2em;
 	display: inline-block;
-	color:black;
-	line-height: 0.05;
+	color:#36B325;
+	line-height: 1.5;
+	background: black;
+	margin: 0;
+	width: 14em;
+  padding: 0 0em 0.4em 0;
+  text-align: left;
+	top: -0.25em;
+	left: 13em;
+  
 }
-
+header h2:first-line {
+	line-height: 0.45;
+}
 footer {
   padding: 10px;
   width: 100%;
@@ -145,7 +153,9 @@ footer {
 	flex-direction: row;
   align-items: center;
   justify-content: space-between;
-}
+  background: white;
+  box-shadow: 0 10px 20px 0px rgba(50,50,50,0.2) inset;
+} 
 
 footer p {
   line-height: 1.2em;
@@ -186,8 +196,8 @@ footer span a {
 
 .main-pane {
 	position:relative;
+	width: 100%;
 	display: flex;
-	min-height: 100vh;
 	flex-direction: column;
 	justify-content: space-between;
 	transform-style: preserve-3d;
@@ -201,7 +211,7 @@ footer span a {
 	border: 1px solid white;
 	width: 95%;
 	max-width: 720px;
-	box-shadow: 0 2em 3em -0.5em rgba(50,50,50,0.3);
+	box-shadow: 0 2em 3em -0.5em rgba(50,50,50,0.4), 0 2em 3em 5em rgba(255,255,255,0.7);
 }
 /*...... Buttons .......*/
 
@@ -210,11 +220,14 @@ button,
 .btn {
 	height: 80px;
 	display: inline-block;
-	background: #F15743;
+	background: #F63D00; /*linear-gradient(225deg, #7b37ae,#e81633,#f9d002)  #F15743 */;
 	border: none;
 	position: relative;
-	font-family: 'OrkneyLight', sans-serif;
+	font-family: 'Fugaz One';	
 	text-transform: uppercase;
+	border-radius: 0.2em;
+	box-shadow: 0 2em 3em -0.5em rgba(50,50,50,0.3);
+
 }
 .btn-text {
 	padding: 0 50px;
@@ -278,41 +291,37 @@ button,
 
 /*...... Index Page .......*/
 
-input[type="text"] {
+.index-page input[type="text"] {
+	align-self: flex-start;
   text-align: center;
-  font-family: 'Orkney','Montserrat', sans-serif;
-  font-size: 2em;
-  padding: 0.75em 0.75em 0.6em 0.75em;
-  border: none;
-  border-radius: 0.2em;
-  border: none;
+	font-family: 'Fugaz One';	
+  font-size: 3em;
+  padding: 0.25em 0.25em 0.2em 0.25em;
+  border: 5px solid #F63D00;
   box-shadow: 0 2em 3em -0.5em rgba(50,50,50,0.3);
   transform: rotateX(90deg);
   animation: rotateIn 1s ease-out 1s forwards;
-  &:focus {
-    outline:0;
-  }
+  background: transparent;
+  width: 10em;
 }
 
 @keyframes rotateIn {
 	0% { transform: rotateX(90deg)}
 	100% { transform: rotateX(0deg)}
-
 }
 
 input[type="text"]:focus {
 	outline: 0;
 }
 
-
 .index-page a.btn-text {
 	display: block;
 	width: 20em;
-	margin: 0 auto;
+	align-self: flex-end;
 }
 
 .index-page label {
-	height: 100px;
+	height: 4em;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -320,15 +329,25 @@ input[type="text"]:focus {
   padding: 0 20%;
   cursor: pointer;
   font-size: 1.5em;
+}
+
+.selectorBox {
+	background: white;
+	box-shadow: 0 2em 3em -0.5em rgba(50,50,50,0.3);
+	width: 100%;
+	max-width: 500px;
+	align-self: center;
+	margin: 2em 0;
 
 }
+
 .index-page label .indicator {
-	background:white;
-	height: 32px;
-	width: 32px;
-	border-radius: 50%;
-	border: 3px solid white;
-	box-shadow: 0 0 0 3px black;
+	background:white;	
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 2em 3em 2em 0em;
+	border-color: transparent transparent transparent transparent;
 }
 
 .index-page label input[type="radio"] {
@@ -336,7 +355,27 @@ input[type="text"]:focus {
 }
 
 .index-page label input:checked ~ .indicator {
-	background: black;
+	border-color: transparent #36B325 transparent transparent ;
+}
+.index-page label input:checked ~ span {
+	background: #36B325;
+	text-align: right;
+}
+.index-page .btn {
+	padding-top: 1.5em;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #F63D00;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #F63D00;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #F63D00;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #F63D00;
 }
 
 /*...... Status Message .......*/
