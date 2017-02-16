@@ -34,12 +34,12 @@ export default class IndexPage extends React.Component {
 		})
 		console.log(this.state.inputValue)
 	}
+	
 	handleOptionChange(event) {
 		this.setState({
 			radioValue: event.target.value
 		})
 		console.log(this.state.radioValue)
-
 	}
 	
   render() {

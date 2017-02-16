@@ -85,7 +85,7 @@ function sortAndRenderImage(posts, res) {
 		//var dataObj = this.state.userData;
 		//make an obj of format { url: likes, obj: likes... }
 		for (var i=0; i < posts.length; i++) {
-			objToSort[posts[i].media] = posts[i].likes;
+			objToSort[posts[i].media.replace('https','http')] = posts[i].likes;
 		}
 		var imageUrls = [];
 		var sortable = [];
