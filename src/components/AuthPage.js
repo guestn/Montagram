@@ -123,6 +123,7 @@ export default class IndexPage extends React.Component {
 							<img className="montageImage" src={this.state.montageUrl} />
 							<div className="button-container">
 								<a className="btn btn-text" href={'http://'+window.location.hostname +':' + window.location.port + this.state.montageUrl} download>DOWNLOAD</a>
+								<a className="btn btn-text" href={'instagram://app'}>SHARE</a>
 							</div>
 						</div> : 
 						<div className="loading-container">
