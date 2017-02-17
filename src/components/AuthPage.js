@@ -12,44 +12,36 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import Loader from './Loader';
 
 export default class IndexPage extends React.Component {
+
 	constructor(props) {
-		super(props)
+		super(props);
 		
 		this.state = {
 			generateClicked: false,
 			statusMessage: '',
 			userData: null,
-			dataCollected: false,
 			username: null,
 			imageUrlsSet: false,
-			images: null,
 			imageUrls: null,
 			loadingMessage: '',
 		}
-		
 	}
 	
 	componentWillMount() {
-		var hash = this.props.location.hash.slice(1);
-		var accessToken = hash.substr(hash.indexOf("=") + 1);
-		
 		this.setState({
 			generateClicked: false,
-			inputValue: 'rollmop99',
 			userData: null,
 			montageUrlSet: false,
 			username: this.props.location.query.user,
 			duration: this.props.location.query.dur,
 			loadingMessage: 'Generating - this might take a minute...',
-		});	
-
+		});
 	}
 	
 	componentDidMount() {
 		this.collectData();
 	}
 	
-
 	collectData() {
 		this.setState({
 			generateClicked: true
@@ -73,7 +65,7 @@ export default class IndexPage extends React.Component {
 				this.setState({
 					montageUrl: data,
 					montageUrlSet: true,
-					statusMessage: 'Click Download To Save Your Image'
+					statusMessage: 'Click Download To Save Your Image, Or On Mobile Press Image to Save'
 				})
 			} else {
 				this.setState({
@@ -90,8 +82,6 @@ export default class IndexPage extends React.Component {
 				statusMessage: 'There has been an error. Please try again'
 			})
 		})
-		
-		
 	}
 	
 	onDownloadClicked() {
@@ -107,7 +97,6 @@ export default class IndexPage extends React.Component {
     return (
       <div className="auth-page">        
         <div className="main-pane">
-
 					
 					<ReactCSSTransitionGroup
           	transitionName="anim"
@@ -134,8 +123,6 @@ export default class IndexPage extends React.Component {
 					}
 
         </div>
-
-          
       </div>
     );
   }
