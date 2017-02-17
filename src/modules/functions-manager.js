@@ -1,5 +1,4 @@
 var request = require('request');
-var rp = require('request-promise')
 var InstagramPosts, streamOfPosts;
 InstagramPosts = require('instagram-screen-scrape').InstagramPosts;
 
@@ -77,7 +76,7 @@ exports.process = function(req, res) {
 		}
 		console.log('finished')
 		//res.json(posts)
-		sortAndRenderImage(posts, res);
+		sortAndRenderImage(posts, username, res);
 	})
 	streamOfPosts.on('error', function(err) {
 		//console.log(posts)
@@ -87,22 +86,9 @@ exports.process = function(req, res) {
 	})
 }
 
-function sortAndRenderImage(posts, res) {
+function sortAndRenderImage(posts, username, res) {
 	
-
-
-		// if private profile,exit;
-/*
-		if (this.state.userData.entry_data.ProfilePage[0].user.is_private) {
-			this.setState({
-				statusMessage: 'User is Private'
-			})
-			return;
-		}
-		
-*/
 		var objToSort = {}
-		//var dataObj = this.state.userData;
 		//make an obj of format { url: likes, obj: likes... }
 		for (var i=0; i < posts.length; i++) {
 			objToSort[posts[i].media.replace('https','http')] = posts[i].likes;
@@ -120,7 +106,7 @@ function sortAndRenderImage(posts, res) {
 		//get last 9 items of sortable and push them to imgs object
 
 		for (var i = sortable.length - 1; i > sortable.length - 10; i--) {
-			if (typeof sortable[i] != 'undefined') {
+			if (typeof sortable[i] != 'undefined' && sortable[i][0].search('.jpg') > 0) {
 				imageUrls.push(sortable[i][0])
 			}
 		}
@@ -140,10 +126,11 @@ function sortAndRenderImage(posts, res) {
 			.geometry('360x360+0+0')
 			.tile('3x3')
 			.compress('JPEG')
-			.write(appDir +'/static/uploads/montage-' + random + '.jpg', function(err) {
+			.quality(50)
+			.write(appDir +'/static/uploads/' + username + '-' + random + '.jpg', function(err) {
 				if(!err) {
 					console.log("Written montage image.");
-					res.json('/uploads/montage-' + random + '.jpg');
+					res.json('/uploads/' + username + '-' + random + '.jpg');
 				} else {
 					console.log('GM Err:',err);
 				}
