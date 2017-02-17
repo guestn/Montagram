@@ -1,6 +1,6 @@
 'use strict';
 
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import NotFoundPage from './NotFoundPage';
 import MainMenu from './MainMenu';
@@ -11,16 +11,20 @@ export default class IndexPage extends React.Component {
 		
 		this.state = {
 			inputValue: '',
+			radioValue: 'option1',
+			readyToConvert: false
 		}
 		this.handleInputChange = this.handleInputChange.bind(this)
-	this.handleOptionChange = this.handleOptionChange.bind(this)
+		this.handleOptionChange = this.handleOptionChange.bind(this)
+		this.onGeneratePressed = this.onGeneratePressed.bind(this)
 
 
 	}
 	componentWillMount() {
 		this.setState({
 			inputValue: '',
-			radioValue: 'option1'
+			radioValue: 'option1',
+			readyToConvert: false
 		})
 	}
 	
@@ -40,6 +44,11 @@ export default class IndexPage extends React.Component {
 			radioValue: event.target.value
 		})
 		console.log(this.state.radioValue)
+	}
+	
+	onGeneratePressed() {
+		console.log('click')
+		this.context.router.push('/auth?user=' + this.state.inputValue + '&dur=' + this.state.radioValue);
 	}
 	
   render() {
@@ -64,13 +73,15 @@ export default class IndexPage extends React.Component {
 	 						<div className="indicator"></div>
 						</label>
 					</div>
-          <a className="btn btn-text" href={'/auth?user=' + this.state.inputValue + '&dur=' + this.state.radioValue }>get my #montagram!</a>
+          <button className="btn btn-text" disabled={(this.state.inputValue == '') ? true : false} onClick={this.onGeneratePressed}>get my #montagram!</button>
         </div>
       </div>
     );
   }
 }
 
-
+IndexPage.contextTypes = {
+  router: PropTypes.object.isRequired
+};
 
 

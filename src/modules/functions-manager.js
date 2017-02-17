@@ -46,6 +46,15 @@ exports.process = function(req, res) {
 	}
 	 
 	streamOfPosts.on('data', function(post) {
+		
+		console.log('post:',post)
+		
+		if (typeof post == 'undefined' ||  post == null) {
+			console.log('PRIVATE')
+			res.json('private');
+		}
+
+		
 	  var time = post.time * 1000;
 
 		count++;
@@ -59,11 +68,22 @@ exports.process = function(req, res) {
 		}
 
 	})
-	streamOfPosts.on('end', function(post) {
-		//console.log(posts)
+	streamOfPosts.on('end', function() {
+		if (posts[0] == 'undefined' || posts[0] == null) {
+					console.log('PRIVATE')
+	
+			res.json('private');
+			return;
+		}
 		console.log('finished')
 		//res.json(posts)
 		sortAndRenderImage(posts, res);
+	})
+	streamOfPosts.on('error', function(err) {
+		//console.log(posts)
+		console.log('THISERROR',err)
+		res.json(err);
+		//res.json(posts)
 	})
 }
 

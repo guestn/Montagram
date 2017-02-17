@@ -112,7 +112,7 @@ header .site-logo h1 {
   display: inline-block;
   line-height: 0.4;
   vertical-align: baseline;
-  box-shadow: 0 0.25em 1em rgba(50,50,50,0.3);
+  box-shadow: 0 0.25em 1em 0 rgba(50,50,50,0.3);
   margin:0;
   padding: 0 0 0.4em 10em;
   left: -10em;
@@ -135,12 +135,13 @@ header h2 {
 	line-height: 1.5;
 	background: black;
 	margin: 0;
-	width: 14em;
-  padding: 0 0em 0.4em 0;
+	width: 34em;
+  padding: 0.25em 20em 0.4em 0;
   text-align: left;
 	top: -0.25em;
 	left: 13em;
-  
+    box-shadow: 0 0.5em 1em 0 rgba(50,50,50,0.3);
+
 }
 header h2:first-line {
 	line-height: 0.45;
@@ -207,7 +208,7 @@ footer span a {
 
 .montageImage {
 	display: block;
-	margin: 0 auto;
+	margin: 2em auto;
 	border: 1px solid white;
 	width: 95%;
 	max-width: 720px;
@@ -230,7 +231,7 @@ button,
 
 }
 .btn-text {
-	padding: 0 50px;
+	padding: 25px 50px;
 	color: white;
 	font-size: 20px;
 }
@@ -314,14 +315,18 @@ input[type="text"]:focus {
 	outline: 0;
 }
 
-.index-page a.btn-text {
+.index-page .btn-text {
 	display: block;
-	width: 20em;
 	align-self: flex-end;
+	cursor: pointer;
+}
+
+.index-page .btn-text:disabled {
+	cursor: not-allowed;
 }
 
 .index-page label {
-	height: 4em;
+	height: 3em;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -333,16 +338,15 @@ input[type="text"]:focus {
 
 .selectorBox {
 	background: white;
-	box-shadow: 0 2em 3em -0.5em rgba(50,50,50,0.3);
+	box-shadow: 0em 0.25em 1em 0em rgba(0,0,0,0.2) inset;
 	width: 100%;
 	max-width: 500px;
 	align-self: center;
 	margin: 2em 0;
-
 }
 
 .index-page label .indicator {
-	background:white;	
+	background:transparent;	
 	width: 0;
 	height: 0;
 	border-style: solid;
@@ -377,6 +381,150 @@ input[type="text"]:focus {
 :-moz-placeholder { /* Firefox 18- */
   color: #F63D00;
 }
+
+/*...... Auth Page .......*/
+
+.auth-page .main-pane {
+	align-items: center;
+	margin: 2em 0;
+}
+
+.auth-page .main-pane h2 {
+	font-size: 3em;
+  background: black;
+  color: white;
+  padding: 0 1em;
+  margin-bottom: 0.25em;
+}
+
+.auth-page .button-container {
+	text-align: center;
+}
+
+.loading-container {
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*...... Loader .......*/
+
+
+.loader {
+	margin-top: 10vh;
+	margin-bottom:  10vh;
+}
+
+.loader,
+.loader .container,
+.loader .container-shadow {
+  position: relative;
+  width: 132px;
+  height: 100px;
+}
+
+.loader .container, 
+.loader .container-shadow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transform: skew(-30deg) rotate(30deg);
+          transform: skew(-30deg) rotate(30deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 150px;
+          perspective: 150px;
+}
+.loader .square {
+  width: 34px;
+  height: 24px;
+}
+.loader .container .square {
+  background: #F63D00;
+  box-shadow: 10px 10px 10px 0 rgba(50, 50, 50, 0.1);
+}
+.loader .container .square:nth-child(1) {
+  -webkit-animation: translate 2s infinite 0.75s;
+          animation: translate 2s infinite 0.75s;
+}
+.loader .container .square:nth-child(2) {
+  -webkit-animation: translate 2s infinite 1.5s;
+          animation: translate 2s infinite 1.5s;
+}
+.loader .container .square:nth-child(3) {
+  -webkit-animation: translate 2s infinite 2.25s;
+          animation: translate 2s infinite 2.25s;
+}
+.loader .container .square:nth-child(4) {
+  -webkit-animation: translate 2s infinite 3s;
+          animation: translate 2s infinite 3s;
+}
+.loader .container .square:nth-child(5) {
+  -webkit-animation: translate 2s infinite 3.75s;
+          animation: translate 2s infinite 3.75s;
+}
+.loader .container .square:nth-child(6) {
+  -webkit-animation: translate 2s infinite 4.5s;
+          animation: translate 2s infinite 4.5s;
+}
+.loader .container .square:nth-child(7) {
+  -webkit-animation: translate 2s infinite 5.25s;
+          animation: translate 2s infinite 5.25s;
+}
+.loader .container .square:nth-child(8) {
+  -webkit-animation: translate 2s infinite 6s;
+          animation: translate 2s infinite 6s;
+}
+.loader .container .square:nth-child(9) {
+  -webkit-animation: translate 2s infinite 6.75s;
+          animation: translate 2s infinite 6.75s;
+}
+.loader .inner {
+  position: absolute;
+  width: 132px;
+  height: 132px;
+  top: 0;
+  left: 0;
+}
+.loader .container-shadow .square {
+  background: #ddd;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+}
+
+@-webkit-keyframes translate {
+  0%, 50%, 100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  25% {
+    -webkit-transform: translate(-5px, -5px);
+            transform: translate(-5px, -5px);
+    background: #ff9877;
+  }
+}
+
+@keyframes translate {
+  0%, 50%, 100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  25% {
+    -webkit-transform: translate(-5px, -5px);
+            transform: translate(-5px, -5px);
+    background: #ff9877;
+  }
+}
+
+
+
+
 
 /*...... Status Message .......*/
 
@@ -426,7 +574,7 @@ input[type="text"]:focus {
 
 @media (max-width:900px) {
 	body {
-		font-size: 10px;
+		font-size: 12px;
 		overflow-y: auto;
 	}
 	h2 {
@@ -451,6 +599,9 @@ input[type="text"]:focus {
 }
 
 @media (max-width:710px) {
+	header .site-logo h1 {
+		font-size: 3.5em;
+	}
 	header h2 {
 		display: none;
 	}
