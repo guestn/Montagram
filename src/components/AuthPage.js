@@ -40,7 +40,7 @@ export default class IndexPage extends React.Component {
 			montageUrlSet: false,
 			username: this.props.location.query.user,
 			duration: this.props.location.query.dur,
-			loadingMessage: 'Loading - this might take a minute...',
+			loadingMessage: 'Generating - this might take a minute...',
 		});	
 
 	}
