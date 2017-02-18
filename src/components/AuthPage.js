@@ -89,7 +89,7 @@ export default class IndexPage extends React.Component {
 		this.setState({
 			statusMessage: 'File Downloaded'
 		})
-		window.location.hreflang = "instagram://app";
+		window.location.href = "instagram://app";
 	}
 
 	

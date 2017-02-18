@@ -4,7 +4,6 @@ import React from 'react';
 import { Link } from 'react-router';
 import NotFoundPage from './NotFoundPage';
 import MainMenu from './MainMenu';
-import pageData from '../data/pageData';
 
 export default class SecondaryPage extends React.Component {
   render() {

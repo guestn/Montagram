@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
-import pageData from '../data/pageData';
 
 export default class MainMenu extends React.Component {
   render() {

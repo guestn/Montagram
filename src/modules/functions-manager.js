@@ -45,9 +45,7 @@ exports.process = function(req, res) {
 	}
 	 
 	streamOfPosts.on('data', function(post) {
-		
-		console.log('post:',post)
-		
+				
 		if (typeof post == 'undefined' ||  post == null) {
 			console.log('PRIVATE')
 			res.json('private');
@@ -106,15 +104,18 @@ function sortAndRenderImage(posts, username, res) {
 		//get last 9 items of sortable and push them to imgs object
 
 		for (var i = sortable.length - 1; i > sortable.length - 10; i--) {
+			//make sure it is defined and is a .jpg not .mp4
 			if (typeof sortable[i] != 'undefined' && sortable[i][0].search('.jpg') > 0) {
+				console.log(sortable[i][1])
 				imageUrls.push(sortable[i][0])
 			}
 		}
-		console.log(imageUrls)
+		console.log(imageUrls);
 		
 		var random = Math.random().toFixed(6)*1000000;
 
-		gm(imageUrls[0])//.resize('360','360')
+		gm(imageUrls[8])//.resize('360','360')
+			.montage(imageUrls[0])
 			.montage(imageUrls[1])
 			.montage(imageUrls[2])
 			.montage(imageUrls[3])
@@ -122,9 +123,8 @@ function sortAndRenderImage(posts, username, res) {
 			.montage(imageUrls[5])
 			.montage(imageUrls[6])
 			.montage(imageUrls[7])
-			.montage(imageUrls[8])
-			.geometry('360x360+0+0')
 			.tile('3x3')
+			.geometry('360x360+0+0')
 			.compress('JPEG')
 			.quality(50)
 			.write(appDir +'/static/uploads/' + username + '-' + random + '.jpg', function(err) {
