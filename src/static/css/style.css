@@ -340,7 +340,7 @@ input[type="text"]:focus {
 	flex-direction: row;
 	justify-content: space-between;
   align-items: center;
-  padding: 0 20%;
+  padding: 0 1em;
   cursor: pointer;
   font-size: 1.5em;
 }
@@ -348,7 +348,6 @@ input[type="text"]:focus {
 .selectorBox {
 	background: white;
 	box-shadow: 0em 0.25em 1em 0em rgba(0,0,0,0.2) inset;
-	width: 100%;
 	max-width: 500px;
 	align-self: center;
 	margin: 2em 0;

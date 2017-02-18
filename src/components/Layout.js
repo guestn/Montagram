@@ -15,7 +15,7 @@ export default class Layout extends React.Component {
         </header>
         <div className="app-content">{this.props.children}</div>
         <footer>
-					<span className="copyright">© 2016&nbsp;Title</span>
+					<span className="copyright">© 2017&nbsp;Montagram</span>
 					<span className="author">Development &amp; Design by <Link to="//guestandguest.com">guest+guest <img id="author-logo" src="/img/gg_image_logo_white.svg"/></Link></span>
         </footer>
       </div>
