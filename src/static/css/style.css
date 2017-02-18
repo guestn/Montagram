@@ -79,13 +79,13 @@ h2 {
   justify-content: space-between;
   width: calc(100vw - 40px);
   max-width: 1040px;
-  border: 1px dotted pink;
-
+/*   border: 1px dotted pink; */
 }
 
 .app-content {
 	width: 100%;
 }
+
 header {
 	position: relative;
 	align-self: flex-start;
@@ -93,16 +93,11 @@ header {
   padding: 0;
   margin-top: 5vw;
   z-index:10;
-/* //  background: linear-gradient(70deg, rgba(255,255,255,1), rgba(255,255,255,0.8)); */
   border-radius: 6px;
 }
 
 header .site-logo {
 	position: relative;
-}
-
-header .site-logo .logo {
-
 }
 
 header .site-logo h1 {
@@ -116,7 +111,6 @@ header .site-logo h1 {
   margin:0;
   padding: 0 0 0.4em 10em;
   left: -10em;
-
 }
 
 header .site-logo h1 > span {
@@ -140,7 +134,7 @@ header h2 {
   text-align: left;
 	top: -0.25em;
 	left: 13em;
-    box-shadow: 0 0.5em 1em 0 rgba(50,50,50,0.3);
+  box-shadow: 0 0.5em 1em 0 rgba(50,50,50,0.3);
 
 }
 header h2:first-line {
@@ -155,7 +149,6 @@ footer {
   align-items: center;
   justify-content: space-between;
   background: white;
-  box-shadow: 0 10px 20px 0px rgba(50,50,50,0.2) inset;
 } 
 
 footer p {
@@ -170,11 +163,27 @@ footer img {
 
 footer span,
 footer span a {
+	position: relative;
 	display: flex;
 	align-items: center;
+	background: #bbb;
+	color:white;
 }
 footer span a {
 	margin-left: 10px;
+}
+
+footer span:first-child {
+	padding-left: 10em;
+	padding-right: 0.5em;
+	left: -10em;
+}
+
+footer span:last-child {
+	padding-right: 10em;
+	padding-left: 0.5em;
+	right: -10em;
+	
 }
 
 .not-found {
@@ -212,7 +221,7 @@ footer span a {
 	border: 1px solid white;
 	width: 95%;
 	max-width: 720px;
-	box-shadow: 0 2em 3em -0.5em rgba(50,50,50,0.4), 0 2em 3em 5em rgba(255,255,255,0.7);
+	box-shadow: 0 2em 3em -0.5em rgba(50,50,50,0.4), 0 2em 3em 3em rgba(255,255,255,0.7);
 }
 /*...... Buttons .......*/
 
@@ -542,6 +551,9 @@ input[type="text"]:focus {
 	opacity:0.01;
 	transition: opacity 500ms ease-in;
 	pointer-events: none;
+	width: 95%;
+	max-width: 500px;
+	text-align: center;
 /*   animation: fadeInOut 3s linear forwards; */
 
 }

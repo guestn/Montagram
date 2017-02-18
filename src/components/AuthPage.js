@@ -52,6 +52,8 @@ export default class IndexPage extends React.Component {
 			headers: new Headers({
 				'Content-Type': 'application/json',
 				      'Accept': 'application/json',
+				      'Connection': 'Keep-Alive',
+							'Keep-Alive':'timeout=120, max=100'
 			}),
 			body: JSON.stringify({ name: this.state.username, duration: this.state.duration})
 		})
